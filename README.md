@@ -1,4 +1,5 @@
 # giphy-api
+To run this project locally please follow the instructions below. Make sure you have Node and NPM installed on your local machine.
 
 ## Project setup
 ```
@@ -9,16 +10,3 @@ npm install
 ```
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

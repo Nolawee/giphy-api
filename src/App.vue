@@ -1,26 +1,64 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <logo />
+    <search @fetch-gifs="onFetch" @clear-gifs="clearGifs" :bottom-counter="bottomCounter"/>
+    <gif-list :gifs="gifs"/>  
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Logo from "@/components/Logo"
+import Search from "@/components/Search"
+import GifList from "@/components/GifList"
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Search,
+    GifList,
+    Logo
+  },
+  data() {
+    return {
+      gifs: [],
+      bottomCounter: 0
+    }
+  },
+  methods: {
+    onFetch(result) {
+      const vm = this;
+      vm.gifs.push(...result);
+    },
+    clearGifs(result) {
+      const vm = this;
+      vm.bottomCounter = 0;
+      vm.gifs = [...result]
+    },
+    getScrollEnd() {
+      const vm = this;
+      window.onscroll = () => {
+        if((window.scrollY + window.innerHeight + 1) >= document.documentElement.scrollHeight && vm.gifs.length > 0) {
+          vm.bottomCounter++;
+        }
+      }
+    }
+  },
+  
+  mounted() {
+    const vm = this;
+    vm.getScrollEnd();
   }
 }
 </script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+</style>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  * {
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+  }
+  body {
+    background-color: #000000;
+    padding: 50px;
+  }
 </style>
