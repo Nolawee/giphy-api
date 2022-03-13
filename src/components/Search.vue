@@ -86,11 +86,7 @@ export default {
       let url = `${process.env.VUE_APP_GIPHY_API_URL}/gifs/search?api_key=${process.env.VUE_APP_GIPHY_API_KEY}&q=${vm.keyword}&limit=${vm.limit}`
       if(vm.bottomCounter > 0) {
         let offset = vm.limit * vm.bottomCounter;
-        if(offset > vm.finalPage) {
-          console.log("stop scrolling")
-          return; // stop scrolling
-          
-        } 
+        if(offset > vm.finalPage) return; // stop scrolling
         url = url+ `&offset=${offset}`;
       }
       fetch(url)
