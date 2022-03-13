@@ -1,7 +1,7 @@
 <template>
-  <img src="@/assets/giphy_logo.png" alt="Girl in a jacket" width="36" height="36">
+  <img src="@/assets/giphy_logo.png" width="36" height="36">
   <div id="logo">
-    giphy grabber
+    <b>giphy grabber</b>
   </div>
 </template>
 
@@ -16,7 +16,7 @@ export default {
 <style scoped>
   img {
     float: left;
-    margin-bottom: 10px;
+    margin-bottom: 3px;
   }
   #logo {
     margin-top: 4px;
