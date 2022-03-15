@@ -17,7 +17,7 @@ export default {
 /* I used https://css-tricks.com/adaptive-photo-layout-with-flexbox/ as a guide to style the gifs */
 
   .gif {
-    height: 17vh;
+    height: 25vh;
     flex-grow: 1;
   }
   img {
