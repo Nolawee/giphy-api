@@ -169,7 +169,7 @@ export default {
 
   @media only screen and (min-width: 1849px) {
     input {
-      width: 97%;
+      width: 98%;
     }
   }
 
