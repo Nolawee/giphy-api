@@ -110,6 +110,7 @@ export default {
     height: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
-    padding: 1vw;
+    padding: 1.5vh 2vw;
+    margin: 0;
   }
 </style>

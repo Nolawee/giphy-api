@@ -152,7 +152,7 @@ export default {
     font-size: 18px;
     outline: 0;
     height: 53px;
-    width: 96%;
+    width: calc(100% - 52px);
     border: 2px solid #5f5f5f;
     vertical-align: bottom;
   }
@@ -160,69 +160,4 @@ export default {
   input:focus {
     border-color: #1c1ca8;
   }
-
-  .loading {
-    background-color: black;
-    height: 100px;
-  }
-
-  @media only screen and (min-width: 2669px) {
-    input {
-      width: 98%;
-    }
-  }
-
-  @media only screen (min-width: 1900px) and (max-width: 2668.98px) {
-    input {
-      width: 97%;
-    }
-  }
-
-  @media only screen and (max-width: 1300px) {
-    input {
-      width: 94%;
-    }
-  }
-
-  @media only screen and (max-width: 982px) {
-    input {
-      width: 92%;
-    }
-  }
-
-  @media only screen and (max-width: 858px) {
-    input {
-      width: 91%;
-    }
-  }
-
-  @media only screen and (max-width: 765px) {
-    input {
-      width: 90%;
-    }
-  }
-
-  @media only screen and (max-width: 693px) {
-    input {
-      width: 89%;
-    }
-  }
-
-  @media only screen and (max-width: 635px) {
-    input {
-      width: 88%;
-    }
-  }
-
-  @media only screen and (max-width: 587px) {
-    input {
-      width: 89%;
-    }
-  }
-  @media only screen and (max-width: 364px) {
-    input {
-      width: 80%;
-    }
-  }
-
 </style>
