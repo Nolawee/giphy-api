@@ -1,9 +1,7 @@
 <template>
-    
       <logo />
       <search @fetch-gifs="onFetch" @clear-gifs="clearGifs" :bottom-counter="bottomCounter"/>
-      <gif-list :columns="new_gifs"/>
-
+      <gif-list :columns="columned_gifs"/>
 </template>
 
 <script>
@@ -23,8 +21,8 @@ export default {
       gifs: [],
       bottomCounter: 0,
       columns: 4,
-      new_gifs: {},
-      clear_new_gifs: {},
+      columned_gifs: {},
+      clear_columned_gifs: {},
       initialScreenSize: window.innerWidth
     }
   },
@@ -42,20 +40,20 @@ export default {
     },
     generateGrid() {
       const vm = this;
-      if((Object.keys(vm.new_gifs).length !== 0) && (vm.columns !== Object.keys(vm.new_gifs).length)) vm.new_gifs = {...vm.clear_new_gifs};
+      if((Object.keys(vm.columned_gifs).length !== 0) && (vm.columns !== Object.keys(vm.columned_gifs).length)) vm.columned_gifs = {...vm.clear_columned_gifs};
       for(let i = 0; i < vm.columns; i++) {
-        vm.new_gifs[`column${i}`] = []
+        vm.columned_gifs[`column${i}`] = []
       }
       for(let i = 0; i < vm.gifs.length; i++) {
         const column = i % vm.columns;
-        vm.new_gifs[`column${column}`].push(vm.gifs[i]);
+        vm.columned_gifs[`column${column}`].push(vm.gifs[i]);
       }
     },
     clearGifs(result) {
       const vm = this;
       vm.bottomCounter = 0;
       vm.gifs = [...result]
-      vm.new_gifs = {...vm.clear_new_gifs}
+      vm.columned_gifs = {...vm.clear_columned_gifs}
 
     },
     getScrollEnd() {
@@ -85,7 +83,6 @@ export default {
   watch: { 
     columns() {
       const vm = this;
-      console.log("watching "+ vm.columns)
       if(vm.gifs.length) vm.generateGrid();
 
     }
@@ -103,9 +100,6 @@ export default {
   }
   body {
     background-color: #000000;
-    position: relative;
-    top: 0;
-    width: 0;
     width: 100%;
     height: 100%;
     overflow-y: scroll;
